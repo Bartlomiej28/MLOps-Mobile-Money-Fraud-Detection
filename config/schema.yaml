@@ -1,0 +1,75 @@
+columns:
+  - step: int
+  - type: category
+  - amount: float
+  - nameOrig: category
+  - oldbalanceOrg: float
+  - newbalanceOrig: float
+  - nameDest: category
+  - oldbalanceDest: float
+  - newbalanceDest: float
+  - isFraud: int
+  - isFlaggedFraud: int
+
+numerical_columns:
+  - step
+  - amount
+  - oldbalanceOrg
+  - newbalanceOrig
+  - oldbalanceDest
+  - newbalanceDest
+  - isFraud
+  - isFlaggedFraud
+
+categorical_columns:
+  - type
+  - nameOrig
+  - nameDest
+
+drop_columns:
+  - step
+  - nameOrig
+  - nameDest
+  - isFlaggedFraud
+
+oh_columns:
+  - type
+
+or_columns:
+  - amount_band
+  - orig_balance_emptied
+  - dest_previously_empty
+
+ordinal_categories:
+  amount_band:
+    - low
+    - medium
+    - high
+    - very_high
+  orig_balance_emptied:
+    - "N"
+    - "Y"
+  dest_previously_empty:
+    - "N"
+    - "Y"
+
+transform_columns:
+  - amount
+  - oldbalanceOrg
+  - newbalanceOrig
+  - oldbalanceDest
+  - newbalanceDest
+  - balance_change_orig
+  - balance_change_dest
+  - error_balance_orig
+  - error_balance_dest
+  - amount_to_balance_ratio
+
+num_features:
+  - hour_of_day
+  - day_of_month
+
+amount_band_edges:
+  - 10000
+  - 100000
+  - 1000000
